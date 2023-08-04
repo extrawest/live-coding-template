@@ -4,36 +4,39 @@
   "affected": {
     "defaultBase": "main"
   },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "YWNiYjk3OGUtMGFlYy00YzA2LTg0MDktOWU1OGQ2NTZhMzBifHJlYWQtd3JpdGU="
-      }
+        "runner": "nx/tasks-runners/default",
+		"options": {
+			"cacheableOperations": [
+				"build",
+				"lint",
+				"test",
+				"e2e",
+				"build-storybook"
+			]
+		}
     }
   },
   "targetDefaults": {
     "build": {
       "dependsOn": [
         "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json"
       ]
     }
   },
   "generators": {
-    "@nrwl/react": {
+    "@nx/react": {
       "application": {
         "style": "scss",
         "linter": "eslint",
@@ -48,5 +51,15 @@
       }
     }
   },
-  "defaultProject": "template"
+  "defaultProject": "template",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [],
+    "production": [
+      "default"
+    ]
+  }
 }

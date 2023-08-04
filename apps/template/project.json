@@ -1,10 +1,11 @@
 {
+  "name": "template",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/template/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
@@ -13,12 +14,12 @@
         "index": "apps/template/src/index.html",
         "baseHref": "/",
         "main": "apps/template/src/main.tsx",
-        "polyfills": "apps/template/src/polyfills.ts",
+        "polyfills": "",
         "tsConfig": "apps/template/tsconfig.app.json",
         "assets": ["apps/template/src/favicon.ico", "apps/template/src/assets"],
         "styles": ["apps/template/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nx/react/plugins/webpack"
       },
       "configurations": {
         "development": {
@@ -44,7 +45,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "template:build",
@@ -61,15 +62,15 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/template/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/template"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/template"],
       "options": {
         "jestConfig": "apps/template/jest.config.ts",
         "passWithNoTests": true

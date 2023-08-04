@@ -1,7 +1,6 @@
 import { useEffect, FC } from "react";
 import { CustomFormats, IntlProvider } from "react-intl";
 import dayjs from "dayjs";
-import { getCookie } from "@mono-redux-starter/shared/utils";
 import messagesEn from "../../../../i18n/en.json";
 import { AppIntlProviderProps, MessagesProps } from "./AppIntlProvider.types";
 
@@ -9,7 +8,7 @@ export const AppIntlProvider: FC<AppIntlProviderProps> = ({
 	children
 }) => {
 	// catch locale
-	const currentLocale = getCookie("locale") ?? "en-AU";
+	const currentLocale = "en-US";
 
 	// if need to show currency use it else - delete
 	const formats: CustomFormats = {
@@ -38,14 +37,14 @@ export const AppIntlProvider: FC<AppIntlProviderProps> = ({
 	);
 
 	return (
-    <IntlProvider
-      locale={currentLocale}
-      messages={messages[currentLocale] ?? messages["en"]}
-      formats={formats}
-      defaultLocale="en"
-    >
-      {children}
-    </IntlProvider>
+		<IntlProvider
+			locale={currentLocale}
+			messages={messages[currentLocale] ?? messages["en"]}
+			formats={formats}
+			defaultLocale="en"
+		>
+			{children}
+		</IntlProvider>
 	);
 };
 

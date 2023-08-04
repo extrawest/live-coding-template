@@ -1,4 +1,3 @@
-export * from "./lib/cookie/cookie";
 export * from "./lib/crypto/crypto";
 export * from "./lib/pxToRem";
 export * from "./lib/isDevelopmentMode";
