@@ -14,7 +14,6 @@
         "index": "apps/template/src/index.html",
         "baseHref": "/",
         "main": "apps/template/src/main.tsx",
-        "polyfills": "",
         "tsConfig": "apps/template/tsconfig.app.json",
         "assets": ["apps/template/src/favicon.ico", "apps/template/src/assets"],
         "styles": ["apps/template/src/styles.scss"],

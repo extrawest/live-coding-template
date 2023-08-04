@@ -5,6 +5,8 @@
   "scripts": {
     "update": "nx migrate latest",
     "start:template": "nx serve template --port=4201",
+	"start:nest-app": "nx serve template --port=8000",
+	"start:express-app": "nx serve template --port=9000",
     "build:template": "nx build template --skip-nx-cache --prod",
     "run:many": "nx run-many --target=build --projects=template --prod",
     "lint:template": "nx lint --project=template",
