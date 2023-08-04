@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@mono-redux-starter/redux": ["libs/redux/src/index.ts"],
-      "@mono-redux-starter/shared": ["libs/shared/src/index.ts"],
       "@mono-redux-starter/shared/hocs": ["libs/shared/hocs/src/index.ts"],
       "@mono-redux-starter/shared/hooks": ["libs/shared/hooks/src/index.ts"],
       "@mono-redux-starter/shared/permissions": [
